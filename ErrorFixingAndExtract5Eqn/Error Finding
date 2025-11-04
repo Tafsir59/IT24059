@@ -1,0 +1,28 @@
+Main Problems Found
+
+1. Wrong import statement
+
+import java.lang.Scanner; 
+
+Should be import java.util.Scanner; 
+
+2. Incorrect variable name
+
+You used both sc and scanner inconsistently. Choose one and use it throughout.
+
+3. Incorrect data types
+
+int theta = scanner.nextDouble(); — the result of nextDouble() should be stored in a double, not int.
+
+4. Incorrect Math method capitalization
+
+Math.POW should be Math.pow.
+
+5. Incorrect input methods
+
+Sometimes you used nextInt() for doubles and vice versa.
+
+Reusing variable names (b)
+
+Variable b was used for both the triangle base and quadratic coefficient.
+Rename one of them.
