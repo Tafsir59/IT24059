@@ -1,0 +1,7 @@
+| # | Equation Name           | Formula                                                   | Java Math Methods Used                                          |
+| - | ----------------------- | --------------------------------------------------------- | --------------------------------------------------------------- |
+| 1 | Right Triangle Height   | ( h = b \times \tan(\theta) )                             | `Math.tan()`, `Math.toRadians()`                                |
+| 2 | Compound Interest       | ( A = P (1 + \frac{r}{n})^{nt} )                          | `Math.pow()`                                                    |
+| 3 | Cartesian → Polar       | ( r = \sqrt{x^2 + y^2}, \theta = \tan^{-1}(\frac{y}{x}) ) | `Math.sqrt()`, `Math.pow()`, `Math.atan2()`, `Math.toDegrees()` |
+| 4 | Distance Between Points | ( d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2} )              | `Math.sqrt()`, `Math.pow()`                                     |
+| 5 | Quadratic Formula       | ( x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} )                | `Math.sqrt()`, `Math.pow()`, `Math.min()`                       |
