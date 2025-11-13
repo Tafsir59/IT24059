@@ -1,0 +1,48 @@
+public class CustomRandom {
+    private static long seed = System.currentTimeMillis();
+    private static final long a = 1664525;
+    private static final long c = 1013904223;
+    private static final long m = (1L << 32);
+
+    private static void nextSeed() {
+        seed = (a * seed + c) % m;
+    }
+
+    public static int generate() {
+        nextSeed();
+        return (int) (seed & 0x7FFFFFFF);
+    }
+
+    public static int generate(int min, int max) {
+        nextSeed();
+        return min + (int) (generate() % (max - min + 1));
+    }
+
+    public static double generateDouble() {
+        nextSeed();
+        return (double) (seed & 0xFFFFFFFFL) / (double) m;
+    }
+
+    public static float generateFloat() {
+        nextSeed();
+        return (float) ((seed & 0xFFFFFFFFL) / (double) m);
+    }
+
+    public static Number generateMixed() {
+        nextSeed();
+        if (seed % 2 == 0)
+            return generate();
+        else
+            return generateDouble();
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        System.out.println("Random int: " + CustomRandom.generate());
+        System.out.println("Random int (10–50): " + CustomRandom.generate(10, 50));
+        System.out.println("Random float: " + CustomRandom.generateFloat());
+        System.out.println("Random double: " + CustomRandom.generateDouble());
+        System.out.println("Mixed random: " + CustomRandom.generateMixed());
+    }
+}
