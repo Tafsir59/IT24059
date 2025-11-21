@@ -1,0 +1,195 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
+public class LabTest3_HS_GK_Quiz {
+    // Simple container for a multiple-choice question
+    static class Question {
+        String prompt;
+        String[] options; // length should be 4
+        char answer;      // 'A','B','C' or 'D'
+
+        Question(String prompt, String[] options, char answer) {
+            this.prompt = prompt;
+            this.options = options;
+            this.answer = Character.toUpperCase(answer);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        List<Question> bank = buildQuestionBank();
+
+        // Shuffle questions so every run is different
+        Collections.shuffle(bank);
+
+        System.out.println("\n=== High School General Knowledge Quiz ===\n");
+        System.out.println("Instructions: Type A, B, C or D and press Enter. (Answers are not case-sensitive)\n");
+
+        int total = bank.size();
+        int score = 0;
+
+        for (int i = 0; i < total; i++) {
+            Question q = bank.get(i);
+            System.out.printf("Question %d of %d:\n", i + 1, total);
+            System.out.println(q.prompt);
+            char label = 'A';
+            for (String opt : q.options) {
+                System.out.printf("  %c) %s\n", label, opt);
+                label++;
+            }
+
+            char userAnswer = getUserAnswer(sc);
+
+            if (userAnswer == q.answer) {
+                System.out.println("Correct!\n");
+                score++;
+            } else {
+                System.out.printf("Wrong. Correct answer: %c) %s\n\n", q.answer, q.options[q.answer - 'A']);
+            }
+        }
+
+        // Results
+        System.out.println("=== Quiz Complete ===");
+        System.out.printf("Score: %d out of %d\n", score, total);
+        double percent = (100.0 * score) / total;
+        System.out.printf("Percentage: %.1f%%\n", percent);
+        System.out.println("Grade: " + letterGrade(percent));
+
+        // Optional: simple feedback
+        if (percent == 100.0) {
+            System.out.println("Perfect! Outstanding performance.");
+        } else if (percent >= 80.0) {
+            System.out.println("Great job! A little review will make it perfect.");
+        } else if (percent >= 60.0) {
+            System.out.println("Not bad — consider revising topics you missed.");
+        } else {
+            System.out.println("Keep practicing — review the basics and try again.");
+        }
+
+        sc.close();
+    }
+
+    // Build and return the question bank. Modify here to add or change questions.
+    private static List<Question> buildQuestionBank() {
+        List<Question> q = new ArrayList<>();
+
+        q.add(new Question(
+                "Which planet is known as the Red Planet?",
+                new String[]{"Venus", "Mars", "Jupiter", "Mercury"},
+                'B'
+        ));
+
+        q.add(new Question(
+                "Who wrote the play 'Romeo and Juliet'?",
+                new String[]{"Charles Dickens", "Mark Twain", "William Shakespeare", "Jane Austen"},
+                'C'
+        ));
+
+        q.add(new Question(
+                "What is the chemical symbol for water?",
+                new String[]{"H2O", "O2", "CO2", "NaCl"},
+                'A'
+        ));
+
+        q.add(new Question(
+                "Which country is the Taj Mahal located in?",
+                new String[]{"India", "Pakistan", "Bangladesh", "Nepal"},
+                'A'
+        ));
+
+        q.add(new Question(
+                "What is the largest organ in the human body?",
+                new String[]{"Heart", "Skin", "Liver", "Lungs"},
+                'B'
+        ));
+
+        q.add(new Question(
+                "In mathematics, the value of pi (π) is approximately:",
+                new String[]{"2.14", "3.14", "4.13", "1.41"},
+                'B'
+        ));
+
+        q.add(new Question(
+                "Which language is primarily spoken in Brazil?",
+                new String[]{"Spanish", "Portuguese", "French", "English"},
+                'B'
+        ));
+
+        q.add(new Question(
+                "Who is known as the Father of the Nation of Bangladesh?",
+                new String[]{"Sheikh Hasina", "Muhammad Ali Jinnah", "Sheikh Mujibur Rahman", "Ziaur Rahman"},
+                'C'
+        ));
+
+        q.add(new Question(
+                "Which gas do plants absorb from the atmosphere during photosynthesis?",
+                new String[]{"Oxygen", "Nitrogen", "Carbon Dioxide", "Hydrogen"},
+                'C'
+        ));
+
+        q.add(new Question(
+                "What is the boiling point of water at sea level in Celsius?",
+                new String[]{"90°C", "100°C", "212°C", "0°C"},
+                'B'
+        ));
+
+        q.add(new Question(
+                "Which organ pumps blood throughout the human body?",
+                new String[]{"Liver", "Brain", "Heart", "Kidney"},
+                'C'
+        ));
+
+        q.add(new Question(
+                "Who proposed the theory of relativity?",
+                new String[]{"Isaac Newton", "Albert Einstein", "Galileo Galilei", "Nikola Tesla"},
+                'B'
+        ));
+
+        q.add(new Question(
+                "Which of these is NOT a primary color of light?",
+                new String[]{"Red", "Green", "Blue", "Yellow"},
+                'D'
+        ));
+
+        q.add(new Question(
+                "What is the capital city of France?",
+                new String[]{"Madrid", "Berlin", "Paris", "Rome"},
+                'C'
+        ));
+
+        q.add(new Question(
+                "In computing, what does 'CPU' stand for?",
+                new String[]{"Central Process Unit", "Central Processing Unit", "Computer Personal Unit", "Control Processing Unit"},
+                'B'
+        ));
+
+        return q;
+    }
+
+    // Read user answer with validation
+    private static char getUserAnswer(Scanner sc) {
+        while (true) {
+            System.out.print("Your answer (A/B/C/D): ");
+            String line = sc.nextLine().trim();
+            if (line.length() == 0) {
+                System.out.println("Please enter A, B, C, or D.");
+                continue;
+            }
+            char ch = Character.toUpperCase(line.charAt(0));
+            if (ch >= 'A' && ch <= 'D') {
+                return ch;
+            }
+            System.out.println("Invalid input. Enter only A, B, C or D.");
+        }
+    }
+
+    // Convert percentage to a simple letter grade
+    private static String letterGrade(double percent) {
+        if (percent >= 90) return "A";
+        if (percent >= 80) return "B";
+        if (percent >= 70) return "C";
+        if (percent >= 60) return "D";
+        return "F";
+}
+}
