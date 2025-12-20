@@ -1,0 +1,31 @@
+package app;
+
+import java.util.Scanner;
+import validation.logic.Validator;
+
+public class MainApp {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        try {
+            System.out.print("Enter Age: ");
+            int age = sc.nextInt();
+            sc.nextLine();
+
+            System.out.print("Enter Department: ");
+            String dept = sc.nextLine();
+
+            Validator.validateAge(age);
+            Validator.validateDept(dept);
+
+            System.out.println("✅ Valid Input. Access Granted.");
+
+        } catch (Exception e) {
+            System.out.println("❌ Error: " + e.getMessage());
+        }
+
+        sc.close();
+    }
+}
