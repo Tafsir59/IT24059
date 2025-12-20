@@ -1,0 +1,21 @@
+package validation.logic;
+
+import validation.exceptions.AgeException;
+import validation.exceptions.DeptException;
+
+public class Validator {
+
+    public static void validateAge(int age) throws AgeException {
+        if (age < 18 || age > 60) {
+            throw new AgeException("Invalid Age! Age must be between 18 and 60.");
+        }
+    }
+
+    public static void validateDept(String dept) throws DeptException {
+        if (!(dept.equalsIgnoreCase("CSE") ||
+              dept.equalsIgnoreCase("EEE") ||
+              dept.equalsIgnoreCase("ICT"))) {
+            throw new DeptException("Invalid Department! Allowed: CSE, EEE, ICT");
+        }
+    }
+}
