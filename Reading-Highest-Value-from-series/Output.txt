@@ -1,0 +1,2 @@
+Highest Value: 40
+Sum: 100
