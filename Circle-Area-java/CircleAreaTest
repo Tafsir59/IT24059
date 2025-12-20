@@ -1,0 +1,40 @@
+class Circle {
+    private double radius;
+
+    // Constructor
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    // Setter
+    public void setRadius(double radius) {
+        this.radius = radius;
+    }
+
+    // Getter
+    public double getRadius() {
+        return radius;
+    }
+
+    // Method to calculate area
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+public class CircleAreaTest {
+    public static void main(String[] args) {
+        // Create object using constructor
+        Circle c1 = new Circle(7);
+
+        // Display radius and area
+        System.out.println("Radius: " + c1.getRadius());
+        System.out.println("Area of Circle: " + c1.calculateArea());
+
+        // Change radius using setter
+        c1.setRadius(10);
+
+        System.out.println("Updated Radius: " + c1.getRadius());
+        System.out.println("Updated Area of Circle: " + c1.calculateArea());
+    }
+}
