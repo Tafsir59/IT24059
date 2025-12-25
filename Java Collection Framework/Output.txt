@@ -1,0 +1,44 @@
+====== TASK 1: Kth Smallest Element ======
+Input List: [12, 3, 5, 7, 19, 1]
+Finding 2-th smallest element...
+The 2-th smallest element is: 3
+
+====== TASK 2: Word Frequency TreeMap ======
+Input Text: "hello world hello java world code code code"
+Word Frequencies (Sorted Alphabetically):
+code: 3
+hello: 2
+java: 1
+world: 2
+
+====== TASK 3: Queue & Stack using PriorityQueue ======
+--- Implementing Stack (LIFO) via PriorityQueue ---
+Popped: Third
+Popped: Second
+Popped: First
+--- Implementing Queue (FIFO) via PriorityQueue ---
+Dequeued: First
+Dequeued: Second
+Dequeued: Third
+
+====== TASK 4: Student TreeMap ======
+Student Directory (Sorted by ID):
+ID: 101 -> [Name: Bob, Major: Mathematics]
+ID: 102 -> [Name: Charlie, Major: Physics]
+ID: 103 -> [Name: Alice, Major: Computer Science]
+
+====== TASK 5: LinkedList Equality Check ======
+List 1: [A, B, C]
+List 2: [A, B, C]
+List 3: [A, B, D]
+Is List 1 equal to List 2? true
+Is List 1 equal to List 3? false
+
+====== TASK 6: Employee HashMap ======
+Employee Department Map:
+Emp ID: E001, Dept: HR
+Emp ID: E002, Dept: Finance
+Emp ID: E005, Dept: IT
+Emp ID: E010, Dept: Marketing
+
+Looking up E005: Works in IT
