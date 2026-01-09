@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class SimpleInterest {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Balance: ");
+        double balance = input.nextDouble();
+
+        System.out.print("Annual interest rate (decimal): ");
+        double rate = input.nextDouble();
+
+        System.out.print("Years: ");
+        int years = input.nextInt();
+
+        double interest = balance * rate * years;
+
+        System.out.println("Total interest: " + interest);
+    }
+}
