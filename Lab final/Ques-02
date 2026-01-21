@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class DivisorPrinter {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Welcome! This program reads a positive integer from you");
+        System.out.println("and prints all its positive divisors in decreasing order.");
+        System.out.println("You can repeat this as many times as you like.");
+        System.out.println();
+
+        while (true) {
+            System.out.print("Enter a positive integer (or enter 0 or a negative number to quit): ");
+            
+            if (scanner.hasNextInt()) {
+                int number = scanner.nextInt();
+
+                if (number <= 0) {
+                    System.out.println("Program terminated. Goodbye!");
+                    break; 
+                }
+
+                System.out.println("Divisors of " + number + " in decreasing order:");
+                
+                for (int i = number; i >= 1; i--) {
+                    if (number % i == 0) {
+                        System.out.println(i);
+                    }
+                }
+                System.out.println();
+                
+            } else {
+                String invalidInput = scanner.next();
+                System.out.println("Error: \"" + invalidInput + "\" is not a valid integer. Please try again.\n");
+            }
+        }
+        
+        scanner.close();
+    }
+}
