@@ -1,8 +1,10 @@
-class RectangleArea{
-	public static void main(String[] abc){
-		int width =Integer.parseInt(abc[0]);
-		int height=Integer.parseInt(abc[0]);
-		int area=height*width;
-		System.out.print("Area = "+area);
-}
+import java.util.Scanner;
+class AreaOfRectangle{
+    public static void main(String[] abc){
+        Scanner sc = new Scanner(System.in);
+        int width =sc.nextInt();
+        int height=sc.nextInt();
+        int area=height*width;
+        System.out.print("Area = "+area);
+    }
 }
